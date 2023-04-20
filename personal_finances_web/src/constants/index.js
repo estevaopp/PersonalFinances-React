@@ -4,30 +4,37 @@ export const navLinks = [
   {
     id: "dashboard",
     title: "Dashboard",
+    link: "/",
   },
   {
     id: "revenues",
     title: "Revenues",
+    link: "/",
   },
   {
     id: "expenditures",
     title: "Expenditures",
+    link: "/",
   },
   {
     id: "revenueCategories",
     title: "Revenue Categories",
+    link: "/",
   },
   {
     id: "expenditureCategories",
     title: "Expenditure Categories",
+    link: "/",
   },
   {
     id: "profile",
     title: "Profile",
+    link: "/",
   },
   {
     id: "settings",
     title: "Settings",
+    link: "/",
   },
 ];
 
