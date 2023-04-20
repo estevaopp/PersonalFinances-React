@@ -14,7 +14,7 @@ const App = () => (
       <div className='mt-4 flex flex-col gap-4 relative'>
         {
           navLinks.map((nav, index) => (
-            <a id={nav.id} to={"/"}>
+            <a id={nav.id} href={"/"}>
               <h2>{nav.title}</h2>
             </a>
           ))
