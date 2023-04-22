@@ -1,40 +1,51 @@
 import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star  } from "../assets";
+import { FaRegMoneyBillAlt } from 'react-icons/fa';
+import { RiSettings4Line } from 'react-icons/ri';
+import { AiOutlineUser } from 'react-icons/ai';
+import { MdOutlineDashboard } from 'react-icons/md';
 
 export const navLinks = [
   {
     id: "dashboard",
     title: "Dashboard",
     link: "/",
+    icon: MdOutlineDashboard,
   },
   {
     id: "revenues",
     title: "Revenues",
     link: "/",
+    icon: FaRegMoneyBillAlt,
   },
   {
     id: "expenditures",
     title: "Expenditures",
     link: "/",
+    icon: FaRegMoneyBillAlt,
   },
   {
     id: "revenueCategories",
     title: "Revenue Categories",
     link: "/",
+    icon: FaRegMoneyBillAlt,
   },
   {
     id: "expenditureCategories",
     title: "Expenditure Categories",
     link: "/",
+    icon: FaRegMoneyBillAlt,
   },
   {
     id: "profile",
     title: "Profile",
     link: "/",
+    icon: AiOutlineUser,
   },
   {
     id: "settings",
     title: "Settings",
     link: "/",
+    icon: RiSettings4Line,
   },
 ];
 
