@@ -7,7 +7,7 @@ import { HiMenuAlt3 } from 'react-icons/hi'
 export default function Sidebar() {
 
   
-  const [toggle, setToggle] = useState(true)
+  const [toggle, setToggle] = useState(false)
 
   return (
     <section className='flex gap-6'>
