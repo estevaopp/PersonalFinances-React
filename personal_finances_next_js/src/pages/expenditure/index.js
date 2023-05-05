@@ -4,7 +4,7 @@ import  Sidebar  from '../../components/Sidebar'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Page() {
+export default function ExpenditurePage() {
   return (
     <main
       className={`flex`}
