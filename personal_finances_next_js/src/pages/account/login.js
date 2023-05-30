@@ -1,38 +1,42 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import ErrorModal from '../../components/ErrorModal';
+import { AuthContext } from '@/contexts/AuthContext';
 
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const { signIn } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    try {
-      const res = await fetch("http://localhost:5281/api/Account/Login", {
-        method: "POST",
-        body: JSON.stringify({
-          email,
-          password
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
 
-      const data = await res.json();
-      console.log(data);
+    await signIn(email, password);
+    // try {
+    //   const res = await fetch("http://localhost:5281/api/Account/Login", {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       email,
+    //       password
+    //     }),
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   });
 
-      // Handle success or show error modal based on response
-      if (data.sucess) {
-        // Handle successful login
-      } else {
-        setError(data.message);
-      }
-    } catch (err) {
-      console.log(err);
-      setError("An error occurred. Please try again later.");
-    }
+    //   const data = await res.json();
+    //   console.log(data);
+
+    //   // Handle success or show error modal based on response
+    //   if (data.sucess) {
+    //     // Handle successful login
+    //   } else {
+    //     setError(data.message);
+    //   }
+    // } catch (err) {
+    //   console.log(err);
+    //   setError("An error occurred. Please try again later.");
+    // }
   };
 
   const closeModal = () => {
