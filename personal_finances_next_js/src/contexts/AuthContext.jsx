@@ -3,11 +3,12 @@ import { setCookie } from "nookies";
 import Router from "next/router";
 import React, { useState } from 'react';
 import ErrorModal from '../components/ErrorModal';
+import { api } from "@/services/api";
 
 export const AuthContext = createContext({})
 
 export function AuthProvider({ children }) {
-    var isAuthenticated = false;
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [error, setError] = useState(null);
 
     async function signIn(email, password) {
@@ -31,13 +32,17 @@ export function AuthProvider({ children }) {
                 // Handle successful login
                 var segundosLogados = 60 * 60 * 24;
 
-                setCookie(undefined, "personalfinances.token", data.data.value, {
+                var token = data.data.value;
+
+                setCookie(undefined, "personalfinances.token", token, {
                     maxAge: segundosLogados,
                 });
 
-                isAuthenticated = true;
+                api.defaults.headers['Authorization'] = `Bearer ${token}`;
 
-                Router.push("/");
+                setIsAuthenticated(true);
+
+                Router.push("/dashboard");
             } else {
                 setError(data.message);
             }

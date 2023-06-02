@@ -12,31 +12,6 @@ function LoginForm() {
     e.preventDefault();
 
     await signIn(email, password);
-    // try {
-    //   const res = await fetch("http://localhost:5281/api/Account/Login", {
-    //     method: "POST",
-    //     body: JSON.stringify({
-    //       email,
-    //       password
-    //     }),
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   });
-
-    //   const data = await res.json();
-    //   console.log(data);
-
-    //   // Handle success or show error modal based on response
-    //   if (data.sucess) {
-    //     // Handle successful login
-    //   } else {
-    //     setError(data.message);
-    //   }
-    // } catch (err) {
-    //   console.log(err);
-    //   setError("An error occurred. Please try again later.");
-    // }
   };
 
   const closeModal = () => {
