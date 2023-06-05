@@ -8,7 +8,6 @@ import { api } from "@/services/api";
 export const AuthContext = createContext({})
 
 export function AuthProvider({ children }) {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [error, setError] = useState(null);
 
     async function signIn(email, password) {
@@ -38,11 +37,7 @@ export function AuthProvider({ children }) {
                     maxAge: segundosLogados,
                 });
 
-                api.defaults.headers['Authorization'] = `Bearer ${token}`;
-
-                setIsAuthenticated(true);
-
-                Router.push("/dashboard");
+                Router.push("/");
             } else {
                 setError(data.message);
             }
@@ -57,7 +52,7 @@ export function AuthProvider({ children }) {
     };
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated, signIn }}>
+        <AuthContext.Provider value={{ signIn }}>
             {children}
         
             {error && <ErrorModal error={error} onClose={closeModal} />}
